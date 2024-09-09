@@ -8,13 +8,13 @@ echo -e "WELCOME TO T3RN AIRDROP BOT !\n
         ";
 read -p "Please select :" answer
 if [[ $answer = 1 ]] ; then
-  node arb.js;
+  node arb.js
 elif [[ $answer = 2 ]] ; then
-  node base.js;
+  node base.js
 elif [[ $answer = 3 ]] ; then
-  node op.js;
+  node op.js
 elif [[ $answer = 4 ]] ; then
-  node blast.js;
+  node blast.js
 else
   echo -e "Nothing to do !\n"
 fi
