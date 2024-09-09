@@ -9,11 +9,11 @@ const { displayHeader } = require("./utils/display");
 const { transactionData, delay } = require("./utils/helper");
 const { getAmount } = require("./utils/api");
 
-const PRIVATE_KEYS = JSON.parse(fs.readFileSync("privateKeys.json", "utf-8"));
-const RPC_URL = "https://arbitrum-sepolia.blockpi.network/v1/rpc/public";
+const PRIVATE_KEYS = JSON.parse(fs.readFileSync('privateKeys.json', 'utf-8'));
+const RPC_URL = T3RN_ABI.at(-1).RPC_ARBT;
 
 const provider = new JsonRpcProvider(RPC_URL);
-const CONTRACT_ADDRESS = "0x8D86c3573928CE125f9b2df59918c383aa2B514D";
+const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
 
 (async () => {
   displayHeader();
