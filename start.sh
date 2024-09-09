@@ -2,10 +2,10 @@ clear;
 echo -e "WELCOME TO T3RN AIRDROP BOT !\n
          Mod By : Mr9868\n
          Choose the network : \n
-         1. Arbitrum Sepolia\n
-         2. Base Sepolia\n
-         3. Op Sepolia\n
-         4. Blast Sepolia\n
+         1. Arbitrum Sepolia         5. Random Arbitrum\n
+         2. Base Sepolia             6. Random Base\n
+         3. Optimism Sepolia         7. Random Optimism\n
+         4. Blast Sepolia            8. Random Blast\n
         ";
 read -p "Please select :" answer
 if [[ $answer = 1 ]] ; then
@@ -16,6 +16,14 @@ elif [[ $answer = 3 ]] ; then
   node op.js
 elif [[ $answer = 4 ]] ; then
   node blast.js
+elif [[ $answer = 5 ]] ; then
+  node random_arb.js
+elif [[ $answer = 6 ]] ; then
+  node random_base.js
+elif [[ $answer = 7 ]] ; then
+  node random_op.js
+elif [[ $answer = 8 ]] ; then
+  node random_blast.js
 else
   echo -e "Nothing to do !\n"
 fi
