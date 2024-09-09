@@ -68,7 +68,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
 
         while (counter > 0) {
           try {
-            const amount = await getAmount(numTx);
+            const amount = await getAmount(options);
             if (!amount) {
               console.log(
                 `❌ Failed to get the amount. Skipping transaction...`.red
