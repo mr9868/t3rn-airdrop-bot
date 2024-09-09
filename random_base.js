@@ -15,7 +15,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
 
 // Define possible destinations
 const destinations = {
-  '1': 'Base Sepolia',
+  '1': 'Arbitrum Sepolia',
   '2': 'Blast Sepolia',
   '3': 'Optimism Sepolia'
 };
