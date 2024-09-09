@@ -2,7 +2,7 @@ require('colors');
 const { Wallet, JsonRpcProvider, ethers, parseUnits } = require('ethers');
 const fs = require('fs');
 const moment = require('moment');
-const T3RN_ABI = require('./contracts/ABI_arb');
+const T3RN_ABI = require('./contracts/ABI_blast');
 const { displayHeader } = require('./utils/display');
 const { transactionData, delay } = require('./utils/helper');
 const { getAmount } = require('./utils/api');
@@ -16,7 +16,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
 // Define possible destinations
 const destinations = {
   '1': 'Base Sepolia',
-  '2': 'Blast Sepolia',
+  '2': 'Arbitrum Sepolia',
   '3': 'Optimism Sepolia'
 };
 
@@ -103,7 +103,7 @@ async function processTransactions(wallet, maxTxPerDay) {
             `✅ [ ${moment().format('HH:mm:ss')} ] Transaction sent successfully! ${amountInEth} ETH transferred.`.green
           );
           console.log(
-            `🔗 [ ${moment().format('HH:mm:ss')} ] Transaction hash: https://sepolia-explorer.arbitrum.io/tx/${result.hash}`.green
+            `🔗 [ ${moment().format('HH:mm:ss')} ] Transaction hash: https://sepolia.blastscan.io/tx/${result.hash}`.green
           );
           console.log('');
 
