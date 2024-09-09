@@ -1,5 +1,5 @@
-# t3rn-airdrop-bot
-
+# t3rn-bot
+Mod by : Mr9868
 A bot designed to automate transactions and bridge assets on the t3rn network, making the process seamless and efficient.
 
 ## Features
@@ -21,8 +21,7 @@ A bot designed to automate transactions and bridge assets on the t3rn network, m
 
    
    ```bash
-   https://github.com/mr9868/t3rn-bot.git
-   cd t3rn-bot
+   https://github.com/mr9868/t3rn-bot.git && cd t3rn-bot
    ```
 
 
@@ -38,11 +37,11 @@ A bot designed to automate transactions and bridge assets on the t3rn network, m
 3. **Install Dependencies**:
 
       ```bash
-   chmod +x install.sh;
-   ./install.sh
+   npm install;
+   chmod +x install.sh && ./install.sh
    ```
 
-4. **Run the Bot**:
+5. **Run the Bot**:
    Start the bot by running:
 
    ```bash
