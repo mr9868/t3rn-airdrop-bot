@@ -2,7 +2,7 @@ require('colors');
 const { Wallet, JsonRpcProvider, ethers, parseUnits } = require('ethers');
 const fs = require('fs');
 const moment = require('moment');
-const T3RN_ABI = require('./contracts/ABI_arb');
+const T3RN_ABI = require('./contracts/ABI_op');
 const { displayHeader } = require('./utils/display');
 const { transactionData, delay } = require('./utils/helper');
 const { getAmount } = require('./utils/api');
@@ -17,7 +17,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
 const destinations = {
   '1': 'Base Sepolia',
   '2': 'Blast Sepolia',
-  '3': 'Optimism Sepolia'
+  '3': 'Arbitrum Sepolia'
 };
 
 // Function to get a random network option
@@ -103,7 +103,7 @@ async function processTransactions(wallet, maxTxPerDay) {
             `✅ [ ${moment().format('HH:mm:ss')} ] Transaction sent successfully! ${amountInEth} ETH transferred.`.green
           );
           console.log(
-            `🔗 [ ${moment().format('HH:mm:ss')} ] Transaction hash: https://sepolia-explorer.arbitrum.io/tx/${result.hash}`.green
+            `🔗 [ ${moment().format('HH:mm:ss')} ] Transaction hash: https://optimism-sepolia.blockscout.com/tx/${result.hash}`.green
           );
           console.log('');
 
