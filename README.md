@@ -21,7 +21,7 @@ A bot designed to automate transactions and bridge assets on the t3rn network, m
 
    
    ```bash
-   https://github.com/mr9868/t3rn-bot.git && cd t3rn-bot
+   git clone https://github.com/mr9868/t3rn-bot.git && cd t3rn-bot
    ```
 
 
