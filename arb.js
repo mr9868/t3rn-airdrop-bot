@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const readlineSync = require('readline-sync');
 const moment = require('moment');
-const T3RN_ABI = require('./contracts/ABI');
+const T3RN_ABI = require('./contracts/ABI_arb');
 const { displayHeader } = require('./utils/display');
 const { transactionData, delay } = require('./utils/helper');
 const { getAmount } = require('./utils/api');
