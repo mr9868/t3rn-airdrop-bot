@@ -13,7 +13,7 @@ const PRIVATE_KEYS = JSON.parse(fs.readFileSync('privateKeys.json', 'utf-8'));
 const RPC_URL = T3RN_ABI.at(-1).RPC_ARBT;
 
 const provider = new JsonRpcProvider(RPC_URL);
-const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
+const CONTRACT_ADDRESS = 0x8D86c3573928CE125f9b2df59918c383aa2B514D;
 
 (async () => {
   displayHeader();
