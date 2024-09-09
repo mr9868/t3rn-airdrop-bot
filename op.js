@@ -1,13 +1,13 @@
-require('colors');
-const { Wallet, JsonRpcProvider, ethers, parseUnits } = require('ethers');
-const fs = require('fs');
+require("colors");
+const { Wallet, JsonRpcProvider, ethers, parseUnits } = require("ethers");
+const fs = require("fs");
 
-const readlineSync = require('readline-sync');
-const moment = require('moment');
-const T3RN_ABI = require('./contracts/ABI_op');
-const { displayHeader } = require('./utils/display');
-const { transactionData, delay } = require('./utils/helper');
-const { getAmount } = require('./utils/api');
+const readlineSync = require("readline-sync");
+const moment = require("moment");
+const T3RN_ABI = require("./contracts/ABI_op");
+const { displayHeader } = require("./utils/display");
+const { transactionData, delay } = require("./utils/helper");
+const { getAmount } = require("./utils/api");
 
 const PRIVATE_KEYS = JSON.parse(fs.readFileSync('privateKeys.json', 'utf-8'));
 const RPC_URL = T3RN_ABI.at(-1).RPC_ARBT;
@@ -17,25 +17,25 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
 
 (async () => {
   displayHeader();
-  console.log('⏳ Please wait...'.yellow);
-  console.log('');
+  console.log("⏳ Please wait...".yellow);
+  console.log("");
 
   const options = readlineSync.question(
-    'Choose the network that you want to use 👇\n1. Optimism Sepolia to Base Sepolia\n2. Optimism Sepolia to Blast Sepolia\n3. Optimism Sepolia to Arbitrum Sepolia\n4. Exit\n\nEnter 1, 2, 3, or 4: '
+    "Choose the network that you want to use 👇\n1. Optimism Sepolia to Base Sepolia\n2. Optimism Sepolia to Blast Sepolia\n3. Optimism Sepolia to Optimism Sepolia\n4. Exit\n\nEnter 1, 2, 3, or 4: "
   );
 
-  if (options === '4' || !options) {
-    console.log('👋 Exiting the bot. See you next time!'.cyan);
-    console.log('Subscribe: https://t.me/HappyCuanAirdrop.'.green);
+  if (options === "4" || !options) {
+    console.log("👋 Exiting the bot. See you next time!".cyan);
+    console.log("Subscribe: https://t.me/HappyCuanAirdrop.".green);
     process.exit(0);
   }
 
   const numTx = readlineSync.questionInt(
-    '🔄 How many times you want to swap or bridge? '
+    "🔄 How many times you want to swap or bridge? "
   );
 
   if (numTx <= 0) {
-    console.log('❌ Number of transactions must be greater than 0!'.red);
+    console.log("❌ Number of transactions must be greater than 0!".red);
     process.exit(1);
   }
 
@@ -46,18 +46,18 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     while (totalSuccess < numTx) {
       try {
         const balance = await provider.getBalance(wallet.address);
-        const balanceInEth = ethers.formatUnits(balance, 'ether');
+        const balanceInEth = ethers.formatUnits(balance, "ether");
 
         console.log(
           `⚙️ [ ${moment().format(
-            'HH:mm:ss'
+            "HH:mm:ss"
           )} ] Doing transactions for address ${wallet.address}...`.yellow
         );
 
         if (balanceInEth < 0.001) {
           console.log(
             `❌ [ ${moment().format(
-              'HH:mm:ss'
+              "HH:mm:ss"
             )} ] Your balance is too low (💰 ${balanceInEth} ETH), please claim faucet first!`
               .red
           );
@@ -86,25 +86,25 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               gasLimit: 2000000, // adjustable
               gasPrice,
               from: wallet.address,
-              value: parseUnits('0.0001', 'ether'), // adjustable
+              value: parseUnits("0.01", "ether"), // adjustable
             };
 
             const result = await wallet.sendTransaction(transaction);
             console.log(
               `✅ [ ${moment().format(
-                'HH:mm:ss'
+                "HH:mm:ss"
               )} ] Transaction successful from Optimism Sepolia to ${
-                options === '1' ? 'Base' : options === '2' ? 'Blast' : 'Arbitrum'
+                options === "1" ? "Base" : options === "2" ? "Blast" : "Arbitrum"
               } Sepolia!`.green
             );
             console.log(
               `🔗 [ ${moment().format(
-                'HH:mm:ss'
+                "HH:mm:ss"
               )} ] Transaction hash: https://optimism-sepolia.blockscout.com/tx/${
                 result.hash
               }`.green
             );
-            console.log('');
+            console.log("");
 
             totalSuccess++;
             counter--;
@@ -115,7 +115,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
           } catch (error) {
             console.log(
               `❌ [ ${moment().format(
-                'HH:mm:ss'
+                "HH:mm:ss"
               )} ] Error during transaction: ${error}`.red
             );
           }
@@ -123,22 +123,22 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
       } catch (error) {
         console.log(
           `❌ [ ${moment().format(
-            'HH:mm:ss'
+            "HH:mm:ss"
           )} ] Error in processing transactions: ${error}`.red
         );
       }
     }
   }
 
-  console.log('');
+  console.log("");
   console.log(
     `🎉 [ ${moment().format(
-      'HH:mm:ss'
+      "HH:mm:ss"
     )} ] All ${numTx} transactions are complete!`.green
   );
   console.log(
     `📢 [ ${moment().format(
-      'HH:mm:ss'
+      "HH:mm:ss"
     )} ] Subscribe: https://t.me/HappyCuanAirdrop`.green
   );
 })();
