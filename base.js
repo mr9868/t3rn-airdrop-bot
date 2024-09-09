@@ -100,7 +100,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
             console.log(
               `🔗 [ ${moment().format(
                 "HH:mm:ss"
-              )} ] Transaction hash: https://https://sepolia.basescan.org/tx/${
+              )} ] Transaction hash: https://sepolia.basescan.org/tx/${
                 result.hash
               }`.green
             );
