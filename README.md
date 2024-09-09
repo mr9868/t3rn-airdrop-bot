@@ -19,11 +19,11 @@ A bot designed to automate transactions and bridge assets on the t3rn network, m
 
 1. **Clone the Repository**:
 
+   
    ```bash
-   git clone https://github.com/dante4rt/t3rn-airdrop-bot.git
-   cd t3rn-airdrop-bot
+   https://github.com/mr9868/t3rn-bot.git
+   cd t3rn-bot
    ```
-
 
 
 2. **Create `privateKeys.json`**:
