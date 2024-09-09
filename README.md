@@ -24,13 +24,9 @@ A bot designed to automate transactions and bridge assets on the t3rn network, m
    cd t3rn-airdrop-bot
    ```
 
-2. **Install Dependencies**:
 
-   ```bash
-   npm install
-   ```
 
-3. **Create `privateKeys.json`**:
+2. **Create `privateKeys.json`**:
    Create a file named `privateKeys.json` in the root directory with the following format:
 
    ```json
@@ -39,12 +35,18 @@ A bot designed to automate transactions and bridge assets on the t3rn network, m
      "your_private_key_2"
    ]
    ```
+3. **Install Dependencies**:
+
+      ```bash
+   chmod +x install.sh;
+   ./install.sh
+   ```
 
 4. **Run the Bot**:
    Start the bot by running:
 
    ```bash
-   node index.js
+   ./start.sh
    ```
 
 ## Usage
