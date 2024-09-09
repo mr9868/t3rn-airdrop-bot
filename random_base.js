@@ -2,7 +2,7 @@ require('colors');
 const { Wallet, JsonRpcProvider, ethers, parseUnits } = require('ethers');
 const fs = require('fs');
 const moment = require('moment');
-const T3RN_ABI = require('./contracts/ABI_arb');
+const T3RN_ABI = require('./contracts/ABI_base');
 const { displayHeader } = require('./utils/display');
 const { transactionData, delay } = require('./utils/helper');
 const { getAmount } = require('./utils/api');
@@ -103,7 +103,7 @@ async function processTransactions(wallet, maxTxPerDay) {
             `✅ [ ${moment().format('HH:mm:ss')} ] Transaction sent successfully! ${amountInEth} ETH transferred.`.green
           );
           console.log(
-            `🔗 [ ${moment().format('HH:mm:ss')} ] Transaction hash: https://sepolia-explorer.arbitrum.io/tx/${result.hash}`.green
+            `🔗 [ ${moment().format('HH:mm:ss')} ] Transaction hash: https://sepolia.basescan.org/tx/${result.hash}`.green
           );
           console.log('');
 
