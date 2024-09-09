@@ -4,16 +4,16 @@ const fs = require("fs");
 
 const readlineSync = require("readline-sync");
 const moment = require("moment");
-const T3RN_ABI = require("./contracts/ABI_base");
+const T3RN_ABI = require("./contracts/ABI");
 const { displayHeader } = require("./utils/display");
 const { transactionData, delay } = require("./utils/helper");
 const { getAmount } = require("./utils/api");
 
 const PRIVATE_KEYS = JSON.parse(fs.readFileSync('privateKeys.json', 'utf-8'));
-const RPC_URL = T3RN_ABI.at(-1).RPC_ARBT;
+const RPC_URL = T3RN_ABI.at(-1).RPC_BST;
 
 const provider = new JsonRpcProvider(RPC_URL);
-const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
+const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_BST;
 
 (async () => {
   displayHeader();
