@@ -36,16 +36,16 @@ function getRandomDelay() {
   return Math.floor(Math.random() * (30000 - 6000 + 1)) + 6000;
 }
 
-function getRandomTransactionValue() {
+// function getRandomTransactionValue() {
   // Random value between 0.0003 ETH and 0.0010 ETH
   const min = 0.01;
   const max = 0.03;
   const randomValue = Math.random() * (max - min) + min;
-  return {
-    value: parseUnits("" + randomValue.toFixed(2) + "", "ether"),
-    amountInEth: randomValue.toFixed(2)
-  };
-}
+  // return {
+    // value: parseUnits("" + randomValue.toFixed(2) + "", "ether"),
+    // amountInEth: randomValue.toFixed(2)
+  // };
+// }
 
 async function processTransactions(wallet, maxTxPerDay) {
   let totalSuccess = 0;
@@ -80,7 +80,7 @@ async function processTransactions(wallet, maxTxPerDay) {
 
           // Generate a random destination and transaction value
           const randomOption = getRandomDestination();
-          const { value, amountInEth } = getRandomTransactionValue();
+          const amountInEth  = randomValue.toFixed(2);
           const request =
               "0x56591d5962737370000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000062a459f164fbb4acf8be5e2fed615dd85baa40700000000000000000000000000000000000000000000000000238610fdcf980e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002386f26fc10000";
           const gasPrice = parseUnits('0.1', 'gwei');
@@ -91,7 +91,7 @@ async function processTransactions(wallet, maxTxPerDay) {
             gasLimit: 2000000,
             gasPrice,
             from: wallet.address,
-            value, // Use the random transaction value
+            value: parseUnits("" + randomValue.toFixed(2) + "", "ether"), // Use the random transaction value
           };
 
           console.log(
