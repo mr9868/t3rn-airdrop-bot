@@ -17,13 +17,17 @@ elif [[ $answer = 3 ]] ; then
 elif [[ $answer = 4 ]] ; then
   node blast.js
 elif [[ $answer = 5 ]] ; then
-  node random_arb.js
+  # node random_arb.js
+    echo -e "Stay Tune !\n"
 elif [[ $answer = 6 ]] ; then
-  node random_base.js
+  # node random_base.js
+    echo -e "Stay Tune !\n"
 elif [[ $answer = 7 ]] ; then
-  node random_op.js
+  # node random_op.js
+    echo -e "Stay Tune !\n"
 elif [[ $answer = 8 ]] ; then
-  node random_blast.js
+  # node random_blast.js
+    echo -e "Stay Tune !\n"
 else
   echo -e "Nothing to do !\n"
 fi
