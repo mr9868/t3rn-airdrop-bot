@@ -93,7 +93,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               const max = 0.05;
               const randomValue = Math.random() * (max - min) + min;
               // return {
-                // value: parseUnits("" + randomValue.toFixed(2) + "", "ether"),
+                // value: parseUnits(randomValue.toFixed(2), "ether"),
                 // amountInEth: randomValue.toFixed(2)
               // };
             const request =
