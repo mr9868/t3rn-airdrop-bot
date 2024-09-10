@@ -34,9 +34,9 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     "🔄 How many times you want to swap or bridge? "
   );
   const tunda = readlineSync.questionInt(
-    "🔄 Set delay for every transaction per second ? "
+    "🔄 Set delay for every transaction per 5 second ? "
   );
-  let Dtunda = tunda* 1000;
+  let Dtunda = (5 * tunda) * 1000;
 
   if (numTx <= 0) {
     console.log("❌ Number of transactions must be greater than 0!".red);
