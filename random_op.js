@@ -88,7 +88,7 @@ async function processTransactions(wallet, maxTxPerDay) {
           //   value: parseUnits(randomValue.toFixed(4), 'ether'),
           //   amountInEth: randomValue.toFixed(4),
           // };
-          const { value, amountInEth } = getRandomTransactionValue();
+          const { amountInEth } = getRandomTransactionValue();
           const request =
               "0x56591d5962737370000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000062a459f164fbb4acf8be5e2fed615dd85baa40700000000000000000000000000000000000000000000000000238610fdcf980e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002386f26fc10000";
           const gasPrice = parseUnits('0.1', 'gwei');
@@ -100,7 +100,7 @@ async function processTransactions(wallet, maxTxPerDay) {
             gasPrice,
             from: wallet.address,
             value: parseUnits(randomValue.toFixed(4), 'ether'),
-            amountInEth: randomValue.toFixed(4),
+            // amountInEth: randomValue.toFixed(4),
           };
 
           console.log(
