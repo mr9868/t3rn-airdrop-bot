@@ -43,7 +43,7 @@ function getRandomTransactionValue() {
   const randomValue = Math.random() * (max - min) + min;
   return {
     value: parseUnits(randomValue.toFixed(4), 'ether'),
-    //amountInEth: randomValue.toFixed(4)
+    amountInEth: randomValue.toFixed(4),
   };
 }
 
