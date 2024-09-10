@@ -34,8 +34,9 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     "🔄 How many times you want to swap or bridge? "
   );
   const tunda = readlineSync.questionInt(
-    "🔄 Set delay for every transaction ? "
+    "🔄 Set delay for every transaction per second ? "
   );
+  let Dtunda = tunda* 1000;
 
   if (numTx <= 0) {
     console.log("❌ Number of transactions must be greater than 0!".red);
@@ -111,11 +112,9 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
             
             totalSuccess++;
             counter--;
-            let Dtunda = ( 10 * tunda ) * 1000;
-            await delay(tunda);
-
+            
             if (counter > 0) {
-              await delay(10000);
+            await delay(Dtunda);
             }
           } catch (error) {
             console.log(
