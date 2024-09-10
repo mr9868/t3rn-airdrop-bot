@@ -33,7 +33,7 @@ function getRandomNumberOfTransactions() {
 
 function getRandomDelay() {
   // Random delay between 2 minutes (120000 ms) and 5 minutes (300000 ms)
-  return Math.floor(Math.random() * (300000 - 120000 + 1)) + 120000;
+  return Math.floor(Math.random() * (30000 - 6000 + 1)) + 6000;
 }
 
 function getRandomTransactionValue() {
