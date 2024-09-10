@@ -36,6 +36,9 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   const tunda = readlineSync.questionInt(
     "Set delay for every transaction ? default = 3 sec : "
   );
+  if (!tunda) {
+      tunda = 3;
+  }
 
   if (numTx <= 0) {
     console.log("❌ Number of transactions must be greater than 0!".red);
@@ -108,18 +111,13 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               }`.green
             );
             console.log("");
-            if (tunda > 0 ) {
-            await delay(tunda);
+            
             totalSuccess++;
             counter--;
-            } else {
-            await delay(3000);
-            totalSuccess++;
-            counter--;
-            }
 
             if (counter > 0) {
-              await delay(30000);
+              let Dtunda = tunda * 1000;
+              await delay(tunda);
             }
           } catch (error) {
             console.log(
