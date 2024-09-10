@@ -111,6 +111,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
             
             totalSuccess++;
             counter--;
+            let Dtunda = ( 10 * tunda ) * 1000;
+            await delay(tunda);
 
             if (counter > 0) {
               let Dtunda = ( 10 * tunda ) * 1000;
