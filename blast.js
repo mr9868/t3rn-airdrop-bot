@@ -38,6 +38,13 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     console.log("❌ Number of transactions must be greater than 0!".red);
     process.exit(1);
   }
+  const tunda = readlineSync.questionInt(
+    "🔄 Set delay for every transaction => "
+  );
+  if (tunda <= 0) {
+    console.log("❌ Delay time must be greater than 0!".red);
+    process.exit(1);
+  }
 
   for (const PRIVATE_KEY of PRIVATE_KEYS) {
     const wallet = new Wallet(PRIVATE_KEY, provider);
@@ -110,7 +117,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
             counter--;
 
             if (counter > 0) {
-              await delay(30000);
+                let Dtunda = (5 * tunda) * 1000;
+                await delay(Dtunda);
             }
           } catch (error) {
             console.log(
