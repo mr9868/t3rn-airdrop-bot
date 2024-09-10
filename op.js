@@ -33,6 +33,9 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   const numTx = readlineSync.questionInt(
     "🔄 How many times you want to swap or bridge? "
   );
+  const tunda = readlineSync.questionInt(
+    "Set delay for every transaction ? default = 3 sec : "
+  );
 
   if (numTx <= 0) {
     console.log("❌ Number of transactions must be greater than 0!".red);
@@ -105,9 +108,15 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               }`.green
             );
             console.log("");
-
+            if (tunda > 0 ) {
+            await delay(tunda);
             totalSuccess++;
             counter--;
+            } else {
+            await delay(3000);
+            totalSuccess++;
+            counter--;
+            }
 
             if (counter > 0) {
               await delay(30000);
