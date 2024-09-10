@@ -33,6 +33,16 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   const numTx = readlineSync.questionInt(
     "🔄 How many times you want to swap or bridge? "
   );
+  function getRandomTransactionValue() {
+  // Random value between 0.0003 ETH and 0.0010 ETH
+  const min = 0.012;
+  const max = 0.02;
+  const randomValue = Math.random() * (max - min) + min;
+  return {
+    value: parseUnits(randomValue.toFixed(4), 'ether'),
+    amountInEth: randomValue.toFixed(4)
+  };
+}
   function getRandomDelay() {
   // Random delay between 2 minutes (120000 ms) and 5 minutes (300000 ms)
   return Math.floor(Math.random() * (30000 - 5000 + 1)) + 5000;
@@ -83,7 +93,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               );
               continue;
             }
-
+            
+            const { value, amountInEth } = getRandomTransactionValue();
             const request =
               "0x56591d5962737370000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000062a459f164fbb4acf8be5e2fed615dd85baa40700000000000000000000000000000000000000000000000000238610fdcf980e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002386f26fc10000";
             const gasPrice = parseUnits("0.1", "gwei"); // adjustable
@@ -94,7 +105,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               gasLimit: 2000000, // adjustable
               gasPrice,
               from: wallet.address,
-              value: parseUnits("0.01", "ether"), // adjustable
+              value,
+              // value: parseUnits("0.01", "ether"), // adjustable
             };
 
             const result = await wallet.sendTransaction(transaction);
@@ -112,8 +124,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
                 result.hash
               }`.green
             );
-            console.log("");
-
+            
             totalSuccess++;
             counter--;
 
@@ -121,6 +132,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
              if (tunda <= 0) {
                 const randomDelay = getRandomDelay();
                 console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Waiting ${randomDelay / 1000} seconds before next transaction...`.yellow);
+                console.log("");
                 await delay(randomDelay);
             } else {
                 let Dtunda =  tunda * 1000;
