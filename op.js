@@ -21,7 +21,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   console.log("");
 
   const options = readlineSync.question(
-    "Choose the network that you want to use 👇\n1. Optimism Sepolia to Base Sepolia\n2. Optimism Sepolia to Blast Sepolia\n3. Optimism Sepolia to Optimism Sepolia\n4. Exit\n\nEnter 1, 2, 3, or 4: "
+    "Choose the network that you want to use 👇\n1. Optimism Sepolia to Base Sepolia\n2. Optimism Sepolia to Blast Sepolia\n3. Optimism Sepolia to Arbitrum Sepolia\n4. Exit\n\nEnter 1, 2, 3, or 4: "
   );
 
   if (options === "4" || !options) {
