@@ -43,7 +43,7 @@ function getRandomTransactionValue() {
   const randomValue = Math.random() * (max - min) + min;
   return {
     value: parseUnits(randomValue.toFixed(4), 'ether'),
-    amountInEth: randomValue.toFixed(4)
+    //amountInEth: randomValue.toFixed(4)
   };
 }
 
@@ -91,8 +91,8 @@ async function processTransactions(wallet, maxTxPerDay) {
             gasLimit: 2000000,
             gasPrice,
             from: wallet.address,
-            value: parseUnits("0.01", "ether"),
-            //value, // Use the random transaction value
+            //value: parseUnits("0.01", "ether"),
+            value, // Use the random transaction value
           };
 
           console.log(
