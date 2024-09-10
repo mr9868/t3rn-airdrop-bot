@@ -107,7 +107,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               gasPrice,
               from: wallet.address,
               value: parseUnits("" + randomValue.toFixed(2) + "", "ether"),
-              // value: parseUnits("0.01", "ether"), // adjustable
+              // value: parseUnits("0.01", "ether"),
             };
 
             const result = await wallet.sendTransaction(transaction);
