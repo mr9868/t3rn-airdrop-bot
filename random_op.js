@@ -100,6 +100,7 @@ async function processTransactions(wallet, maxTxPerDay) {
             gasPrice,
             from: wallet.address,
             value: parseUnits(randomValue.toFixed(4), 'ether'),
+            amountInEth: randomValue.toFixed(4),
           };
 
           console.log(
