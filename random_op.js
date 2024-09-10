@@ -42,8 +42,8 @@ function getRandomTransactionValue() {
   const max = 0.012;
   const randomValue = Math.random() * (max - min) + min;
   return {
-    value: parseUnits(randomValue.toFixed(4), 'ether'),
-    amountInEth: randomValue.toFixed(4),
+    value: parseUnits(randomValue.toFixed(4).toString(), 'ether'),
+    amountInEth: randomValue.toFixed(4).toString(),
   };
 }
 
@@ -78,7 +78,7 @@ async function processTransactions(wallet, maxTxPerDay) {
             continue;
           }
 
-          const { amountInEth } = getRandomTransactionValue();
+          const { value,amountInEth } = getRandomTransactionValue();
           const request =
               "0x56591d5962737370000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000062a459f164fbb4acf8be5e2fed615dd85baa40700000000000000000000000000000000000000000000000000238610fdcf980e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002386f26fc10000";
           const gasPrice = parseUnits('0.1', 'gwei');
@@ -89,8 +89,7 @@ async function processTransactions(wallet, maxTxPerDay) {
             gasLimit: 2000000,
             gasPrice,
             from: wallet.address,
-            value: parseUnits(randomValue.toFixed(4), 'ether'),
-            amountInEth: randomValue.toFixed(4),
+            value,
           };
 
           console.log(
