@@ -1,3 +1,4 @@
+## YANG MODE RANDOM BELOM W FIX
 # t3rn-bot
 Mod by : Mr9868
 
