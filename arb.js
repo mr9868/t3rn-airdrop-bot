@@ -42,6 +42,10 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   const tunda = readlineSync.questionInt(
     "🔄 Set delay for every transaction ? Set 0 for random delay  => "
   );
+  if (tunda <= 4 && tunda > 0) {
+    console.log("❌ Number of delay must be greater than 5 second!".red);
+    process.exit(1);
+  }
   
   if (numTx <= 0) {
     console.log("❌ Number of transactions must be greater than 0!".red);
@@ -84,13 +88,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               );
               continue;
             }
-             // Random value between 0.0003 ETH and 0.0010 ETH
-            const min = 0.01;
-            const max = 0.05;
-            const randomValue = Math.random() * (max - min) + min;
-              // value: parseUnits(randomValue.toFixed(2), 'ether'),
-              // amountInEth: randomValue.toFixed(2)
-            // const { value, amountInEth } = getRandomTransactionValue();
+            
             const request =
               "0x56591d5962737370000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000062a459f164fbb4acf8be5e2fed615dd85baa40700000000000000000000000000000000000000000000000000238610fdcf980e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002386f26fc10000";
             const gasPrice = parseUnits("0.1", "gwei"); // adjustable
@@ -101,8 +99,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               gasLimit: 2000000, // adjustable
               gasPrice,
               from: wallet.address,
-              value: parseUnits("" + randomValue.toFixed(2) + "", "ether"),
-              // value: parseUnits("0.01", "ether"), // adjustable
+              value: parseUnits("0.01", "ether"), // adjustable
             };
 
             const result = await wallet.sendTransaction(transaction);
