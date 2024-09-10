@@ -39,11 +39,11 @@ function getRandomDelay() {
 function getRandomTransactionValue() {
   // Random value between 0.0003 ETH and 0.0010 ETH
   const min = 0.01;
-  const max = 0.012;
+  const max = 0.03;
   const randomValue = Math.random() * (max - min) + min;
   return {
-    value: parseUnits(randomValue.toFixed(4), 'ether'),
-    amountInEth: randomValue.toFixed(4)
+    value: parseUnits("" + randomValue.toFixed(2) + "", "ether"),
+    amountInEth: randomValue.toFixed(2)
   };
 }
 
