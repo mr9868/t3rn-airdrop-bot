@@ -70,6 +70,7 @@ async function processTransactions(wallet, maxTxPerDay) {
       const min = 0.01;
       const max = 0.012;
       const randomValue = Math.random() * (max - min) + min;
+      const isiRandom = randomValue.toFixed(4).toString();
       
 
       while (counter > 0) {
@@ -93,7 +94,7 @@ async function processTransactions(wallet, maxTxPerDay) {
             gasLimit: 2000000,
             gasPrice,
             from: wallet.address,
-            value: parseUnits(randomValue.toFixed(4), 'ether'),
+            value: parseUnits(isiRandom, 'ether'),
           };
 
           console.log(
