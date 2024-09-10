@@ -38,11 +38,17 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     console.log("❌ Number of transactions must be greater than 0!".red);
     process.exit(1);
   }
+ 
+  function getRandomDelay() {
+  // Random delay between 2 minutes (120000 ms) and 5 minutes (300000 ms)
+  return Math.floor(Math.random() * (30000 - 5000 + 1)) + 5000;
+}
+
   const tunda = readlineSync.questionInt(
-    "🔄 Set delay for every transaction => "
+    "🔄 Set delay for every transaction ? Set 0 for random delay  => "
   );
-  if (tunda <= 0) {
-    console.log("❌ Delay time must be greater than 0!".red);
+  if (tunda <= 4 && tunda > 0) {
+    console.log("❌ Number of delay must be greater than 5 second!".red);
     process.exit(1);
   }
 
@@ -117,8 +123,15 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
             counter--;
 
             if (counter > 0) {
-                let Dtunda = (5 * tunda) * 1000;
+                if (tunda <= 0) {
+                const randomDelay = getRandomDelay();
+                console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Waiting ${randomDelay / 1000} seconds before next transaction...`.yellow);
+                console.log("");
+                await delay(randomDelay);
+            } else {
+                let Dtunda =  tunda * 1000;
                 await delay(Dtunda);
+            }
             }
           } catch (error) {
             console.log(
