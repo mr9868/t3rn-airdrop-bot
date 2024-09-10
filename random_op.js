@@ -33,7 +33,7 @@ function getRandomNumberOfTransactions() {
 
 function getRandomDelay() {
   // Random delay between 2 minutes (120000 ms) and 5 minutes (300000 ms)
-  return Math.floor(Math.random() * (300000 - 120000 + 1)) + 120000;
+  return Math.floor(Math.random() * (60000 - 5000 + 1)) + 5000;
 }
 
 function getRandomTransactionValue() {
@@ -42,8 +42,8 @@ function getRandomTransactionValue() {
   const max = 0.012;
   const randomValue = Math.random() * (max - min) + min;
   return {
-    value: parseUnits(randomValue.toFixed(4).toString(), 'ether'),
-    amountInEth: randomValue.toFixed(4).toString()
+    value: parseUnits('' + randomValue.toFixed(4) + '', 'ether'),
+    // amountInEth: randomValue.toFixed(4).toString()
   };
 }
 
