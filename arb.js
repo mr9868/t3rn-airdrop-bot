@@ -88,6 +88,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
             const min = 0.012;
             const max = 0.02;
             const randomValue = Math.random() * (max - min) + min;
+            const randomIsi =randomValue.toFixed(4).toString();
               // value: parseUnits(randomValue.toFixed(4), 'ether'),
               // amountInEth: randomValue.toFixed(4)
             // const { value, amountInEth } = getRandomTransactionValue();
@@ -101,7 +102,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               gasLimit: 2000000, // adjustable
               gasPrice,
               from: wallet.address,
-              value: parseUnits(randomValue.toFixed(2), 'ether'),
+              value: parseUnits(randomIsi, 'ether'),
               // value: parseUnits("0.01", "ether"), // adjustable
             };
 
