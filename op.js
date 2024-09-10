@@ -36,7 +36,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   const tunda = readlineSync.questionInt(
     "🔄 Set delay for every transaction per 5 second ? "
   );
-  if ( tunda = 0 ) {
+  if (tunda <= 0) {
     let Dtunda = 5 * 1000;
   } else {
   let Dtunda = (5 * tunda) * 1000;
