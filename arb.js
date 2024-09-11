@@ -36,7 +36,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
  
   function getRandomDelay() {
   // Random delay between 2 minutes (120000 ms) and 5 minutes (300000 ms)
-  return Math.floor(Math.random() * (120000 - 5000 + 1)) + 5000;
+  return Math.floor(Math.random() * (30000 - 5000 + 1)) + 5000;
 }
 
   const tunda = readlineSync.questionInt(
