@@ -51,7 +51,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     console.log("❌ Number of transactions must be greater than 0!".red);
     process.exit(1);
   }
-
+  const wallets = new Wallet(PRIVATE_KEYS, provider);
   for (const PRIVATE_KEY of PRIVATE_KEYS) {
     const wallet = new Wallet(PRIVATE_KEY, provider);
     let totalSuccess = 0;
@@ -106,11 +106,11 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               to: CONTRACT_ADDRESS,
               gasLimit: 2000000, // adjustable
               gasPrice,
-              from: wallet.address,
+              from: wallets.address,
               value: parseUnits("0.01", "ether"),
             };
 
-            const result = await wallet.sendTransaction(transaction);
+            const result = await wallets.sendTransaction(transaction);
             console.log(
               `✅ [ ${moment().format(
                 "HH:mm:ss"
@@ -133,7 +133,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
              if (tunda <= 0) {
                 const randomDelay = getRandomDelay();
                 console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Waiting ${randomDelay / 1000} seconds before next transaction...`.yellow);
-                console.log(wallet.address);
+                console.log(wallets.address);
                 await delay(randomDelay);
             } else {
                 let Dtunda =  tunda * 1000;
