@@ -21,7 +21,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   console.log("");
 
   const options = readlineSync.question(
-    "Choose the network that you want to use 👇\n1. Arbitrum Sepolia to Base Sepolia\n2. Arbitrum Sepolia to Blast Sepolia\n3. Arbitrum Sepolia to Optimism Sepolia\n4. Exit\n\nEnter 1, 2, 3, or 4: "
+    "Choose the network that you want to use 👇\n1. Arbitrum Sepolia to Base Sepolia\n2. Arbitrum Sepolia to Blast Sepolia\n3. Arbitrum Sepolia to OPtimism Sepolia\n4. Exit\n\nEnter 1, 2, 3, or 4: "
   );
 
   if (options === "4" || !options) {
@@ -33,7 +33,6 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   const numTx = readlineSync.questionInt(
     "🔄 How many times you want to swap or bridge? "
   );
- 
   function getRandomDelay() {
   // Random delay between 2 minutes (120000 ms) and 5 minutes (300000 ms)
   return Math.floor(Math.random() * (30000 - 5000 + 1)) + 5000;
@@ -46,7 +45,6 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     console.log("❌ Number of delay must be greater than 5 second!".red);
     process.exit(1);
   }
-  
   if (numTx <= 0) {
     console.log("❌ Number of transactions must be greater than 0!".red);
     process.exit(1);
@@ -67,7 +65,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
           )} ] Doing transactions for address ${wallet.address}...`.yellow
         );
 
-        if (balanceInEth < 0.01) {
+        if (balanceInEth < 0.001) {
           console.log(
             `❌ [ ${moment().format(
               "HH:mm:ss"
@@ -88,17 +86,9 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               );
               continue;
             }
-            //   Random value between 0.0003 ETH and 0.0010 ETH
-              // const min = 0.01;
-              // const max = 0.05;
-              // const randomValue = Math.random() * (max - min) + min;
-              // let rValue = randomValue.toFixed(2);
-              // return {
-                // value: parseUnits(randomValue.toFixed(2), "ether"),
-                // amountInEth: randomValue.toFixed(2)
-              // };
+
             const request =
-              "0x56591d59627373700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003Ba0Bc556c2f5d4D06eF3CbC7522c6e1DF4448aF00000000000000000000000000000000000000000000000000238680f94f1ecf00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002386f26fc10000";
+              "0x56591d596f7073700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003ba0bc556c2f5d4d06ef3cbc7522c6e1df4448af00000000000000000000000000000000000000000000000045671eef75cbf7fc0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000045671f00e9ba8000";
             const gasPrice = parseUnits("0.1", "gwei"); // adjustable
 
             const transaction = {
@@ -107,7 +97,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               gasLimit: 2000000, // adjustable
               gasPrice,
               from: wallet.address,
-              value: parseUnits("0.01", "ether"),
+              value: parseUnits("0.01", "ether"), // adjustable
             };
 
             const result = await wallet.sendTransaction(transaction);
@@ -115,22 +105,23 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               `✅ [ ${moment().format(
                 "HH:mm:ss"
               )} ] Transaction successful from Arbitrum Sepolia to ${
-                options === "1" ? "Base" : options === "2" ? "Blast" : "OP"
+                options === "1" ? "Base" : options === "2" ? "Blast" : "Optimism"
               } Sepolia!`.green
             );
             console.log(
               `🔗 [ ${moment().format(
                 "HH:mm:ss"
-              )} ] Transaction hash: https://sepolia.arbiscan.io/tx/${
+              )} ] Transaction hash: https://Arbitrum-sepolia.blockscout.com/tx/${
                 result.hash
               }`.green
             );
+            console.log("");
             
             totalSuccess++;
             counter--;
-
-           if (counter > 0) {
-             if (tunda <= 0) {
+            
+            if (counter > 0) {
+                if (tunda <= 0) {
                 const randomDelay = getRandomDelay();
                 console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Waiting ${randomDelay / 1000} seconds before next transaction...`.yellow);
                 console.log("");
@@ -139,7 +130,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
                 let Dtunda =  tunda * 1000;
                 await delay(Dtunda);
             }
-           }
+            }
           } catch (error) {
             console.log(
               `❌ [ ${moment().format(
