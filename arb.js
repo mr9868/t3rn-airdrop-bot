@@ -51,10 +51,9 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     console.log("❌ Number of transactions must be greater than 0!".red);
     process.exit(1);
   }
-  // const wallets = new Wallet(PRIVATE_KEYS, provider);
+
   for (const PRIVATE_KEY of PRIVATE_KEYS) {
     const wallet = new Wallet(PRIVATE_KEY, provider);
-    // let wallet = ethers.utils.getAddress(wallets);
     let totalSuccess = 0;
 
     while (totalSuccess < numTx) {
@@ -134,7 +133,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
              if (tunda <= 0) {
                 const randomDelay = getRandomDelay();
                 console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Waiting ${randomDelay / 1000} seconds before next transaction...`.yellow);
-                console.log(wallet.address);
+                console.log("");
                 await delay(randomDelay);
             } else {
                 let Dtunda =  tunda * 1000;
