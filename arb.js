@@ -53,8 +53,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   }
   // const wallets = new Wallet(PRIVATE_KEYS, provider);
   for (const PRIVATE_KEY of PRIVATE_KEYS) {
-    const wallets = new Wallet(PRIVATE_KEY, provider);
-    const wallet = ethers.utils.getAddress(wallets)
+    const wallet = new Wallet(PRIVATE_KEY, provider);
     let totalSuccess = 0;
 
     while (totalSuccess < numTx) {
