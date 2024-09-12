@@ -187,7 +187,7 @@ const T3RN_ABI = [
   },
   {
     CA_ARBT: '0x8D86c3573928CE125f9b2df59918c383aa2B514D',
-    RPC_ARBT: 'https://arbitrum-sepolia.blockpi.network/v1/rpc/public',
+    RPC_ARBT: 'https://arbitrum-sepolia.infura.io/v3/cf29898319594df799ef861b6dab7198',
   },
 ];
 
