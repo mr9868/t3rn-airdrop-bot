@@ -111,7 +111,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
             console.log(
               `🔗 [ ${moment().format(
                 "HH:mm:ss"
-              )} ] Transaction hash: https://Arbitrum-sepolia.blockscout.com/tx/${
+              )} ] Transaction hash: https://sepolia.arbiscan.io/tx/${
                 result.hash
               }`.green
             );
