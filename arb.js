@@ -133,7 +133,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
              if (tunda <= 0) {
                 const randomDelay = getRandomDelay();
                 console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Waiting ${randomDelay / 1000} seconds before next transaction...`.yellow);
-                console.log("");
+                console.log(wallet.address);
                 await delay(randomDelay);
             } else {
                 let Dtunda =  tunda * 1000;
