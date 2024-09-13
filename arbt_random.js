@@ -56,7 +56,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   const max = 1111;
   const randomValue = Math.random() * (max - min) + min;
   const acak = randomValue.toFixed(0);
-  const desimal = String(baru / 10000);
+  const desimal = String(acak / 10000);
 
 // convert number to a string, then extract the first digit
 var final = Number(String(nolsatu).replace("1000",acak));
