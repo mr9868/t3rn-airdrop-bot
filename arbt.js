@@ -36,6 +36,16 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   const numTx = readlineSync.questionInt(
     '🔄 How many times you want to swap or bridge? '
   );
+   
+  //random delay
+  function getRandomDelay() {
+  // Random delay between 2 minutes (120000 ms) and 5 minutes (5000 ms)
+  return Math.floor(Math.random() * (120000 - 5000 + 1)) + 5000;
+}
+
+  const tunda = readlineSync.questionInt(
+    "🔄 Set delay for every transaction ? Set 0 for random delay  => "
+  );
 
   if (numTx <= 0) {
     console.log('❌ Number of transactions must be greater than 0!'.red);
@@ -104,6 +114,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
             };
 
             const result = await wallet.sendTransaction(transaction);
+            console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Sending ${amount} ETH`.yellow);
             console.log(
               `✅ [ ${moment().format(
                 'HH:mm:ss'
@@ -132,7 +143,15 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
             counter--;
 
             if (counter > 0) {
-              await delay(30000);
+              if (tunda <= 0) {
+                const randomDelay = getRandomDelay();
+                console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Waiting ${randomDelay / 1000} seconds before next transaction...`.yellow);
+                console.log("");
+                await delay(randomDelay);
+              } else {
+                  let Dtunda =  tunda * 1000;
+                  await delay(Dtunda);
+              }
             }
           } catch (error) {
             console.log(
