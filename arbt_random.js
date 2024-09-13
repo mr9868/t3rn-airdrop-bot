@@ -51,10 +51,10 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     console.log('❌ Number of transactions must be greater than 0!'.red);
     process.exit(1);
   }
-  const randomTx = readlineSync.questionInt(
+  const randomTx = readlineSync.keyInYN(
     "🔄 Set random amount for every transaction ? y/n  => "
   );
-  if ( randomTx == 'y' ) {
+  if ( randomTx ) {
   const awal = 10000000000000000;
   const min = 1000;
   const max = 1111;
