@@ -17,6 +17,9 @@ const RPC_URL = T3RN_ABI.at(-1).RPC_ARBT;
 
 const provider = new JsonRpcProvider(RPC_URL);
 const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
+
+
+
 const awal = 10000000000000000;
 const patAwal = String(awal).slice(0,4);
 const saldo = Number(patAwal).toFixed(0);
@@ -37,6 +40,9 @@ const saldoHex = awal.toString(16);
     console.log('Subscribe: https://t.me/HappyCuanAirdrop.'.green);
     process.exit(0);
   }
+  const jumlah = readlineSync.questionInt(
+    "🔄 How much amount you want to bridge ? default 0.01  => 0."
+  );
 
   const numTx = readlineSync.questionInt(
     '🔄 How many times you want to swap or bridge? '
