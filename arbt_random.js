@@ -51,16 +51,29 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     console.log('❌ Number of transactions must be greater than 0!'.red);
     process.exit(1);
   }
+  const randomTx = readlineSync.questionInt(
+    "🔄 Set random amount for every transaction ? y/n  => "
+  );
+  if ( randomTx == 'y' ) {
   const awal = 10000000000000000;
   const min = 1000;
   const max = 1111;
   const acak = Math.random() * (max - min) + min;
   const randomValue = acak.toFixed(0);
   const desimal = String(randomValue / 100000);
-
 // convert number to a string, then extract the first digit
-var final = Number(String(awal).replace("1000",randomValue));
-const saldoHex = final.toString(16);
+  var final = Number(String(awal).replace("1000",randomValue));
+  const saldoHex = final.toString(16);
+  } 
+  else 
+  {
+    const awal = 10000000000000000;
+    const desimal = "0.01";
+    const saldoHex = awal.toString(16);
+  }
+    
+
+
 
 
   for (const PRIVATE_KEY of PRIVATE_KEYS) {
