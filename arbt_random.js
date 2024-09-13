@@ -7,7 +7,7 @@ const readlineSync = require('readline-sync');
 const moment = require('moment');
 const T3RN_ABI = require('./contracts/ABI');
 const { displayHeader } = require('./utils/display');
-const { transactionData, delay } = require('./chains/arbt/helper');
+const { transactionData, delay } = require('./chains/arbt/helper_random');
 const { getAmount } = require('./chains/arbt/api');
 
 const TOKEN_FILE_PATH = path.join(__dirname, 'ARBT_TX_HASH.txt');
