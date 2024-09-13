@@ -39,6 +39,13 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   const patAwal = Number(String(awal).replace("1000",jumlahTx));
   const desimal = String(jumlahTx / 100000);
   const saldoHex = patAwal.toString(16);
+  const awal = 10000000000000000;
+  const jumlahTx = jumlah * 100000;
+  const jumlahValue = jumlahTx.toFixed(0);
+  const desimal = String(jumlahValue / 100000);
+// convert number to a string, then extract the first digit
+  var final = Number(String(awal).replace("1000",jumlahValue));
+  const saldoHex = final.toString(16);
 
 
   const numTx = readlineSync.questionInt(
