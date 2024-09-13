@@ -114,7 +114,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
             };
 
             const result = await wallet.sendTransaction(transaction);
-            console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Sending ${amount.slice(2)} ETH`.yellow);
+            console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Sending ${amount.hex} ETH`.yellow);
             console.log(
               `✅ [ ${moment().format(
                 'HH:mm:ss'
