@@ -45,8 +45,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   const desimal = String(jumlahValue / 100000);
 // convert number to a string, then extract the first digit
   var final = Number(String(awal).replace("1000",jumlahValue));
-  let saldoHex = String(final).padStart(16, '0'); // '00042'
-  console.log(saldoHex);
+  const saldo = final.toString(16);
+  let saldoHex = String(saldo).padStart(16, '0'); // '00042'
 
 
   const numTx = readlineSync.questionInt(
@@ -67,6 +67,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     console.log('❌ Number of transactions must be greater than 0!'.red);
     process.exit(1);
   }
+  console.log(saldoHex);
+  console.log(final);
   
 
   for (const PRIVATE_KEY of PRIVATE_KEYS) {
