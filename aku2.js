@@ -1,5 +1,5 @@
 const readlineSync = require('readline-sync');
- const jumlah = readlineSync.questionInt(
+ const jumlah = readlineSync.questionFloat(
     "🔄 How much amount you want to bridge ? => "
   );
   const awal = 10000000000000000;
