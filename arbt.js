@@ -34,11 +34,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
  const jumlah = readlineSync.questionFloat(
     "🔄 How much amount you want to bridge ? => "
   );
-  // const awal = 10000000000000000;
-  // const jumlahTx = jumlah * 100000;
-  // const patAwal = Number(String(awal).replace("1000",jumlahTx));
-  // const desimal = String(jumlahTx / 100000);
-  // const saldoHex = patAwal.toString(16);
+ 
   const awal = 10000000000000000;
   const jumlahTx = jumlah * 100000;
   const jumlahValue = jumlahTx.toFixed(0);
