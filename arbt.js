@@ -17,15 +17,6 @@ const RPC_URL = T3RN_ABI.at(-1).RPC_ARBT;
 
 const provider = new JsonRpcProvider(RPC_URL);
 const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
-
-
-
-const awal = 10000000000000000;
-const patAwal = String(awal).slice(0,4);
-const saldo = Number(patAwal).toFixed(0);
-const desimal = String(saldo / 100000);
-const saldoHex = awal.toString(16);
-
 (async () => {
   displayHeader();
   console.log('⏳ Please wait...'.yellow);
@@ -41,8 +32,15 @@ const saldoHex = awal.toString(16);
     process.exit(0);
   }
   const jumlah = readlineSync.questionInt(
-    "🔄 How much amount you want to bridge ? default 0.01  => 0."
+    "🔄 How much amount you want to bridge ? => "
   );
+  const awal = 10000000000000000;
+  const ambilJumlah = jumlah.toFixed(0);
+  const jumlahTx = ambilJumlah * 100000;
+  const patAwal = Number(String(awal).replace("1000",jumlahTx));
+  const desimal = String(jumlahtX / 100000);
+  const saldoHex = awal.toString(16);
+
 
   const numTx = readlineSync.questionInt(
     '🔄 How many times you want to swap or bridge? '
