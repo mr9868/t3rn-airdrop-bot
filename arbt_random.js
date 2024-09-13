@@ -51,6 +51,17 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     console.log('❌ Number of transactions must be greater than 0!'.red);
     process.exit(1);
   }
+  const nolsatu = 10000000000000000;
+  const min = 1000;
+  const max = 1111;
+  const randomValue = Math.random() * (max - min) + min;
+  const acak = randomValue.toFixed(0);
+  const desimal = String(baru / 10000);
+
+// convert number to a string, then extract the first digit
+var final = Number(String(nolsatu).replace("1000",acak));
+const saldo = final.toString(16);
+
 
   for (const PRIVATE_KEY of PRIVATE_KEYS) {
     const wallet = new Wallet(PRIVATE_KEY, provider);
@@ -92,7 +103,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
             const request = transactionData(
               wallet.address,
               amount.hex,
-              options
+              options,
+              saldo
             );
 
             const gasPrice = parseUnits('0.1', 'gwei');
@@ -100,7 +112,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
             const gasLimit = await provider.estimateGas({
               to: CONTRACT_ADDRESS,
               data: request,
-              value: parseUnits('0.01', 'ether'),
+              value: parseUnits(desimal, 'ether'),
               gasPrice,
             });
 
@@ -110,11 +122,11 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               gasLimit,
               gasPrice,
               from: wallet.address,
-              value: parseUnits('0.01', 'ether'), // adjustable
+              value: parseUnits(desimal, 'ether'), // adjustable
             };
 
             const result = await wallet.sendTransaction(transaction);
-            console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Sending ${amount} ETH`.yellow);
+            console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Sending ${desimal} ETH`.yellow);
             console.log(
               `✅ [ ${moment().format(
                 'HH:mm:ss'
