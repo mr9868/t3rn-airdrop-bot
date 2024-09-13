@@ -46,6 +46,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
 // convert number to a string, then extract the first digit
   var final = Number(String(awal).replace("1000",jumlahValue));
   let saldoHex = String(final).padStart(16, '0'); // '00042'
+  console.log(saldoHex);
 
 
   const numTx = readlineSync.questionInt(
