@@ -39,7 +39,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   const jumlahTx = ambilJumlah * 100000;
   const patAwal = Number(String(awal).replace("1000",jumlahTx));
   const desimal = String(jumlahTx / 100000);
-  const saldoHex = awal.toString(16);
+  const saldoHex = patAwal.toString(16);
 
 
   const numTx = readlineSync.questionInt(
