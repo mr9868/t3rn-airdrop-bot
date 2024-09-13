@@ -67,9 +67,6 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     console.log('❌ Number of transactions must be greater than 0!'.red);
     process.exit(1);
   }
-  console.log(saldoHex);
-  console.log(final);
-  
 
   for (const PRIVATE_KEY of PRIVATE_KEYS) {
     const wallet = new Wallet(PRIVATE_KEY, provider);
