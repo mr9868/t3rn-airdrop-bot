@@ -112,7 +112,7 @@ const saldo = final.toString(16);
             const gasLimit = await provider.estimateGas({
               to: CONTRACT_ADDRESS,
               data: request,
-              value: parseUnits(desimal, 'ether'),
+              value: parseUnits('0.1', 'ether'),
               gasPrice,
             });
 
@@ -122,7 +122,7 @@ const saldo = final.toString(16);
               gasLimit,
               gasPrice,
               from: wallet.address,
-              value: parseUnits(desimal, 'ether'), // adjustable
+              value: parseUnits('0.1', 'ether'), // adjustable
             };
 
             const result = await wallet.sendTransaction(transaction);
