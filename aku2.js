@@ -11,4 +11,4 @@ console.log(saldoHex);
 console.log(desimal);
 console.log(patAwal);
 console.log(jumlahTx);
-console.log(ambilJumlah);
+console.log(jumlah);
