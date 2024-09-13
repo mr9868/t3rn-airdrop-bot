@@ -17,6 +17,10 @@ const RPC_URL = T3RN_ABI.at(-1).RPC_ARBT;
 
 const provider = new JsonRpcProvider(RPC_URL);
 const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
+const awal = 10000000000000000;
+const saldo = awal.toFixed(0);
+const desimal = saldo / 100000;
+const saldoHex = awal.toString(16);
 
 (async () => {
   displayHeader();
@@ -51,6 +55,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     console.log('❌ Number of transactions must be greater than 0!'.red);
     process.exit(1);
   }
+  
 
   for (const PRIVATE_KEY of PRIVATE_KEYS) {
     const wallet = new Wallet(PRIVATE_KEY, provider);
@@ -92,7 +97,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
             const request = transactionData(
               wallet.address,
               amount.hex,
-              options
+              options,
+              saldoHex
             );
 
             const gasPrice = parseUnits('0.1', 'gwei');
@@ -100,7 +106,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
             const gasLimit = await provider.estimateGas({
               to: CONTRACT_ADDRESS,
               data: request,
-              value: parseUnits('0.01', 'ether'),
+              value: parseUnits(desimal, 'ether'),
               gasPrice,
             });
 
@@ -110,11 +116,11 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               gasLimit,
               gasPrice,
               from: wallet.address,
-              value: parseUnits('0.01', 'ether'), // adjustable
+              value: parseUnits(desimal, 'ether'), // adjustable
             };
 
             const result = await wallet.sendTransaction(transaction);
-            console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Sending ${amount} ETH`.yellow);
+            console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Sending ${desimal} ETH`.yellow);
             console.log(
               `✅ [ ${moment().format(
                 'HH:mm:ss'
