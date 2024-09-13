@@ -20,7 +20,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
 const awal = 10000000000000000;
 const patAwal = String(awal).slice(0,4);
 const saldo = Number(patAwal).toFixed(0);
-const desimal = saldo / 100000;
+const desimal = String(saldo / 100000);
 const saldoHex = awal.toString(16);
 
 (async () => {
