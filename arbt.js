@@ -42,7 +42,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     //   const desimal = "";
     // // convert number to a string, then extract the first digit
     //   const final = 0;
-    //   const saldoHex = 0;
+         const saldoHex = "";
     //   const jumlahTx = 0;
     //   const jumlahValue = 0;
     //   const saldo = 0;
