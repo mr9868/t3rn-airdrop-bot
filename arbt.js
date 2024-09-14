@@ -35,27 +35,27 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     "🔄 How much amount you want to bridge ? set 0 for random tx => "
   );
       const awal = 10000000000000000;
-      // const min = 0; // 0.01 ETH
-      // const max = 0; // 0.01222 ETH
-      // const acak = 0;
+      const min = ""; // 0.01 ETH
+      const max = ""; // 0.01222 ETH
+      const acak = "";
       const randomValue = "";
       const desimal = "";
       // convert number to a string, then extract the first digit
-      // const final = 0;
+      const final = "";
       const saldoHex = "";
-      // const jumlahTx = 0;
-      // const jumlahValue = 0;
-      // const saldo = 0;
+      const jumlahTx = "";
+      const jumlahValue = "";
+      const saldo = "";
   
    if (jumlah <= 0) {
-       let min = 1000; 
-       let max = 1222; 
-       let acak = Math.random() * (max - min) + min;
-       let randomValue = acak.toFixed(0);
-       let desimal = String(randomValue / 100000);
+        min = 1000; 
+        max = 1222; 
+        acak = Math.random() * (max - min) + min;
+        randomValue = acak.toFixed(0);
+        desimal = String(randomValue / 100000);
     // convert number to a string, then extract the first digit
-       let final = Number(String(awal).replace("1000",randomValue));
-       let saldoHex = final.toString(16);
+        final = Number(String(awal).replace("1000",randomValue));
+        saldoHex = final.toString(16);
    }
    else
    {
