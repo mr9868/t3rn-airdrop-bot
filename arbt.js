@@ -38,7 +38,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
       const min = 1000; // 0.01 ETH
       const max = 1222; // 0.01222 ETH
       const acak = Math.random() * (max - min) + min;
-      const randomValue = "";
+      let randomValue = 0;
       const desimal = "";
       // convert number to a string, then extract the first digit
       const final = "";
@@ -48,7 +48,6 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
       const saldo = "";
   
    if (jumlah <= 0) { 
-        
         randomValue = acak.toFixed(0);
         desimal = String(randomValue / 100000);
     // convert number to a string, then extract the first digit
