@@ -28,8 +28,7 @@ A bot designed to automate transactions and bridge assets on the t3rn network, m
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/mnur9868/pure-bot.git
-   cd pure-bot
+   rm -rf t3rn-bot && git clone https://github.com/mnur9868/pure-bot.git && cd pure-bot;
    ```
 
 2. **Install Dependencies**:
@@ -56,7 +55,7 @@ A bot designed to automate transactions and bridge assets on the t3rn network, m
      npm start
      ```
      Or
-     ```
+     ```bash
      chmod +x start.sh && ./start.sh;
      ```
 
