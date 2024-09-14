@@ -32,7 +32,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     process.exit(0);
   }
  const jumlah = readlineSync.questionFloat(
-    "🔄 How much amount you want to bridge ? set 0 for random tx => ${jumlah} ETH"
+    "🔄 How much amount in ETH you want to bridge ? set 0 for random amount => ETH"
   );
       const awal = 10000000000000000;
       const min = 1000; // 0.01 ETH
