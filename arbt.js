@@ -45,7 +45,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
       let saldoHex = "";
       let jumlahTx = "";
       let jumlahValue = "";
-      let saldo = "";
+      let finalHex = "";
   
    if (jumlah <= 0) { 
         randomValue = acak.toFixed(0);
@@ -53,7 +53,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     // convert number to a string, then extract the first digit
         final = Number(String(awal).replace("1000",randomValue));
         finalHex = final.toString(16);
-        saldoHex = String(final).padStart(16, '0');
+        saldoHex = String(finalHex).padStart(16, '0');
    }
    else
    {
@@ -62,8 +62,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
        desimal = String(jumlahValue / 100000);
     // convert number to a string, then extract the first digit
        final = Number(String(awal).replace("1000",jumlahValue));
-       saldo = final.toString(16);
-       saldoHex = String(saldo).padStart(16, '0'); 
+       finalHex = final.toString(16);
+       saldoHex = String(finalHex).padStart(16, '0'); 
 
    }
   const numTx = readlineSync.questionInt(
