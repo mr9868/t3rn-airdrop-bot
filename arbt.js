@@ -35,17 +35,17 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     "🔄 How much amount you want to bridge ? set 0 for random tx => "
   );
       const awal = 10000000000000000;
-      const min = 0; // 0.01 ETH
-      const max = 0; // 0.01222 ETH
-      const acak = 0;
-      const randomValue = 0;
+      // const min = 0; // 0.01 ETH
+      // const max = 0; // 0.01222 ETH
+      // const acak = 0;
+      // const randomValue = 0;
       const desimal = "";
       // convert number to a string, then extract the first digit
-      const final = 0;
+      // const final = 0;
       const saldoHex = "";
-      const jumlahTx = 0;
-      const jumlahValue = 0;
-      const saldo = 0;
+      // const jumlahTx = 0;
+      // const jumlahValue = 0;
+      // const saldo = 0;
   
    if (jumlah <= 0) {
        let min = 1000; 
