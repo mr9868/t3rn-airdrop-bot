@@ -156,7 +156,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               `✅ [ ${moment().format(
                 'HH:mm:ss'
               )} ] Transaction successful from Arbitrum Sepolia to ${
-                options === '1' ? 'Base' : options === '2' ? 'Blast' : 'OP'
+                options === '1' ? 'Base' : options === '2' ? 'Blast' : 'Optimism'
               } Sepolia!`.green
             );
             console.log(
