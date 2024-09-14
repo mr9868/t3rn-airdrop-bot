@@ -32,23 +32,39 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     process.exit(0);
   }
  const jumlah = readlineSync.questionFloat(
-    "🔄 How much amount you want to bridge ? => "
+    "🔄 How much amount you want to bridge ? set 0 for random tx => "
   );
+   if (jumlah <= 0) {
+      const awal = 10000000000000000;
+      const min = 1000;
+      const max = 1111;
+      const acak = Math.random() * (max - min) + min;
+      const randomValue = acak.toFixed(0);
+      const desimal = String(randomValue / 100000);
+    // convert number to a string, then extract the first digit
+      var final = Number(String(awal).replace("1000",randomValue));
+      const saldoHex = final.toString(16);
+   }
+   else
+   {
  
-  const awal = 10000000000000000;
-  const jumlahTx = jumlah * 100000;
-  const jumlahValue = jumlahTx.toFixed(0);
-  const desimal = String(jumlahValue / 100000);
-// convert number to a string, then extract the first digit
-  var final = Number(String(awal).replace("1000",jumlahValue));
-  const saldo = final.toString(16);
-  let saldoHex = String(saldo).padStart(16, '0'); // '00042'
+      const awal = 10000000000000000;
+      const jumlahTx = jumlah * 100000;
+      const jumlahValue = jumlahTx.toFixed(0);
+      const desimal = String(jumlahValue / 100000);
+    // convert number to a string, then extract the first digit
+      var final = Number(String(awal).replace("1000",jumlahValue));
+      const saldo = final.toString(16);
+      let saldoHex = String(saldo).padStart(16, '0'); // '00042'
 
-
+   }
   const numTx = readlineSync.questionInt(
     '🔄 How many times you want to swap or bridge? '
   );
-   
+  if (numTx <= 0) {
+    console.log('❌ Number of transactions must be greater than 0!'.red);
+    process.exit(1);
+  }   
   //random delay
   function getRandomDelay() {
   // Random delay between 2 minutes (120000 ms) and 5 minutes (5000 ms)
