@@ -1,6 +1,12 @@
 # t3rn-airdrop-bot
+# Codded By : dante4rt
+github : https://github.com/dante4rt
+# Modded By : Mr9868
+https://github.com/mnur9868
+https://github.com/mr9868
 
-A bot designed to automate transactions and bridge assets on the t3rn network, making the process seamless and efficient. Now supports both Optimism Sepolia and Arbitrum Sepolia testnets.
+
+A bot designed to automate transactions and bridge assets on the t3rn network, making the process seamless and efficient. Now supports **All Chain**.
 
 ## Features
 
@@ -8,7 +14,7 @@ A bot designed to automate transactions and bridge assets on the t3rn network, m
 - Supports multiple wallets through a JSON file containing private keys.
 - Robust error handling with retry mechanisms to ensure all transactions are completed.
 - User-friendly and easy to set up.
-- Supports bridging from **Optimism Sepolia** and **Arbitrum Sepolia**.
+- Supports bridging from **All Chain**.
 
 ## Requirements
 
@@ -21,8 +27,8 @@ A bot designed to automate transactions and bridge assets on the t3rn network, m
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/dante4rt/t3rn-airdrop-bot.git
-   cd t3rn-airdrop-bot
+   git clone https://github.com/mnur9868/pure-bot.git
+   cd pure-bot
    ```
 
 2. **Install Dependencies**:
@@ -48,11 +54,25 @@ A bot designed to automate transactions and bridge assets on the t3rn network, m
      ```bash
      npm start
      ```
+     Or
+     ```
+     chmod +x start.sh && ./start.sh;
+     ```
 
    - To run the bot for **Arbitrum Sepolia**:
 
      ```bash
      npm run arbt
+     ```
+   - To run the bot for **Base Sepolia**:
+
+     ```bash
+     npm run bssp
+     ```
+   - To run the bot for **Base Sepolia**:
+
+     ```bash
+     npm run blss
      ```
 
    - To run the bot for **Optimism Sepolia**:
