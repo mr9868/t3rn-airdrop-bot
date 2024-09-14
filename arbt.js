@@ -52,17 +52,18 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
         desimal = String(randomValue / 100000);
     // convert number to a string, then extract the first digit
         final = Number(String(awal).replace("1000",randomValue));
-        saldoHex = final.toString(16);
+        finalHex = final.toString(16);
+        saldoHex = String(final).padStart(16, '0');
    }
    else
    {
-    //    jumlahTx = jumlah * 100000;
-    //    jumlahValue = jumlahTx.toFixed(0);
-    //    desimal = String(jumlahValue / 100000);
-    // // convert number to a string, then extract the first digit
-    //    final = Number(String(awal).replace("1000",jumlahValue));
-    //    saldo = final.toString(16);
-    //    saldoHex = String(saldo).padStart(16, '0'); 
+       jumlahTx = jumlah * 100000;
+       jumlahValue = jumlahTx.toFixed(0);
+       desimal = String(jumlahValue / 100000);
+    // convert number to a string, then extract the first digit
+       final = Number(String(awal).replace("1000",jumlahValue));
+       saldo = final.toString(16);
+       saldoHex = String(saldo).padStart(16, '0'); 
 
    }
   const numTx = readlineSync.questionInt(
