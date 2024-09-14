@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "./start.sh",
     "arbt": "node arbt.js",
+    "bssp": "node bssp.js",
+    "blss": "node blss.js",
     "opsp": "node opsp.js"
   },
   "keywords": [
@@ -18,7 +20,7 @@
     "automation",
     "bridge"
   ],
-  "author": "dante4rt",
+  "author": "dante4rt & mr9868",
   "license": "MIT",
   "dependencies": {
     "axios": "^1.7.7",
