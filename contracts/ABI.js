@@ -187,8 +187,12 @@ const T3RN_ABI = [
   },
   {
     CA_ARBT: '0x8D86c3573928CE125f9b2df59918c383aa2B514D',
+    CA_BSSP: '0x30A0155082629940d4bd9Cd41D6EF90876a0F1b5',
+    CA_BLSS: '0x1D5FD4ed9bDdCCF5A74718B556E9d15743cB26A2',
     CA_OPSP: '0xF221750e52aA080835d2957F2Eed0d5d7dDD8C38',
     RPC_ARBT: 'https://arbitrum-sepolia.infura.io/v3/cf29898319594df799ef861b6dab7198',
+    RPC_BSSP: 'https://sepolia.base.org',
+    RPC_BLSS: 'https://blast-sepolia.drpc.org',
     RPC_OPSP: 'https://sepolia.optimism.io',
   },
 ];
