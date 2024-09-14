@@ -34,28 +34,38 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
  const jumlah = readlineSync.questionFloat(
     "🔄 How much amount you want to bridge ? set 0 for random tx => "
   );
-   if (jumlah <= 0) {
       const awal = 10000000000000000;
-      const min = 1000; // 0.01 ETH
-      const max = 1222; // 0.01222 ETH
-      const acak = Math.random() * (max - min) + min;
-      const randomValue = acak.toFixed(0);
-      const desimal = String(randomValue / 100000);
+      const min = 0; // 0.01 ETH
+      const max = 0; // 0.01222 ETH
+      const acak = 0;
+      const randomValue = 0;
+      const desimal = "";
     // convert number to a string, then extract the first digit
-      var final = Number(String(awal).replace("1000",randomValue));
-      const saldoHex = final.toString(16);
+      const final = 0;
+      const saldoHex = 0;
+      const jumlahTx = 0;
+      const jumlahValue = 0;
+      const saldo = 0;
+  
+   if (jumlah <= 0) {
+       min = 1000; // 0.01 ETH
+       max = 1222; // 0.01222 ETH
+       acak = Math.random() * (max - min) + min;
+       randomValue = acak.toFixed(0);
+       desimal = String(randomValue / 100000);
+    // convert number to a string, then extract the first digit
+      final = Number(String(awal).replace("1000",randomValue));
+       saldoHex = final.toString(16);
    }
    else
    {
- 
-      const awal = 10000000000000000;
-      const jumlahTx = jumlah * 100000;
-      const jumlahValue = jumlahTx.toFixed(0);
-      const desimal = String(jumlahValue / 100000);
+       jumlahTx = jumlah * 100000;
+       jumlahValue = jumlahTx.toFixed(0);
+       desimal = String(jumlahValue / 100000);
     // convert number to a string, then extract the first digit
-      var final = Number(String(awal).replace("1000",jumlahValue));
-      const saldo = final.toString(16);
-      let saldoHex = String(saldo).padStart(16, '0'); // '00042'
+       final = Number(String(awal).replace("1000",jumlahValue));
+       saldo = final.toString(16);
+       saldoHex = String(saldo).padStart(16, '0'); // '00042'
 
    }
   const numTx = readlineSync.questionInt(
