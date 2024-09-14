@@ -18,5 +18,5 @@ elif [[ $answer == 3 ]] ; then
 elif [[ $answer == 4 ]] ; then
   node opsp.js
 else
-  echo -e "Nothing to do !\n"
+  echo "Nothing to do !\n"
 fi
