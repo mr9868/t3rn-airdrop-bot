@@ -17,7 +17,6 @@ const RPC_URL = T3RN_ABI.at(-1).RPC_OPSP;
 
 const provider = new JsonRpcProvider(RPC_URL);
 const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
-
 (async () => {
   displayHeader();
   console.log('⏳ Please wait...'.yellow);
@@ -32,19 +31,56 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
     console.log('Subscribe: https://t.me/HappyCuanAirdrop.'.green);
     process.exit(0);
   }
+ const jumlah = readlineSync.questionFloat(
+    "🔄 How much amount in ETH you want to bridge ? set 0 for random amount => "
+  );
+      const awal = 10000000000000000;
+      const min = 1000; // 0.01 ETH
+      const max = 1222; // 0.01222 ETH
+      const acak = Math.random() * (max - min) + min;
+      let randomValue = 0;
+      let desimal = "";
+      // convert number to a string, then extract the first digit
+      let final = "";
+      let saldoHex = "";
+      let jumlahTx = "";
+      let jumlahValue = "";
+      let finalHex = "";
+  
+   if (jumlah <= 0) { 
+        randomValue = acak.toFixed(0);
+        desimal = String(randomValue / 100000);
+    // convert number to a string, then extract the first digit
+        final = Number(String(awal).replace("1000",randomValue));
+        finalHex = final.toString(16);
+        saldoHex = String(finalHex).padStart(16, '0');
+   }
+   else
+   {
+       jumlahTx = jumlah * 100000;
+       jumlahValue = jumlahTx.toFixed(0);
+       desimal = String(jumlahValue / 100000);
+    // convert number to a string, then extract the first digit
+       final = Number(String(awal).replace("1000",jumlahValue));
+       finalHex = final.toString(16);
+       saldoHex = String(finalHex).padStart(16, '0'); 
 
+   }
   const numTx = readlineSync.questionInt(
     '🔄 How many times you want to swap or bridge? '
   );
-
-    //random delay
+  if (numTx <= 0) {
+    console.log('❌ Number of transactions must be greater than 0!'.red);
+    process.exit(1);
+  }   
+  //random delay
   function getRandomDelay() {
   // Random delay between 2 minutes (120000 ms) and 5 minutes (5000 ms)
   return Math.floor(Math.random() * (120000 - 5000 + 1)) + 5000;
 }
 
   const tunda = readlineSync.questionInt(
-    "🔄 Set delay for every transaction ? Set 0 for random delay  => "
+    "🔄 Set delay for every transaction ? Set 0 for random delay => "
   );
 
   if (numTx <= 0) {
@@ -92,7 +128,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
             const request = transactionData(
               wallet.address,
               amount.hex,
-              options
+              options,
+              saldoHex
             );
 
             const gasPrice = parseUnits('0.1', 'gwei');
@@ -100,7 +137,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
             const gasLimit = await provider.estimateGas({
               to: CONTRACT_ADDRESS,
               data: request,
-              value: parseUnits('0.01', 'ether'),
+              value: parseUnits(desimal, 'ether'),
               gasPrice,
             });
 
@@ -110,20 +147,16 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
               gasLimit,
               gasPrice,
               from: wallet.address,
-              value: parseUnits('0.01', 'ether'), // adjustable
+              value: parseUnits(desimal, 'ether'), // adjustable
             };
 
             const result = await wallet.sendTransaction(transaction);
-            console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Sending ${amount.hex} ETH`.yellow);
+            console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Sending ${desimal} ETH`.yellow);
             console.log(
               `✅ [ ${moment().format(
                 'HH:mm:ss'
-              )} ] Transaction successful from Optimism Sepolia to ${
-                options === '1'
-                  ? 'Arbitrum'
-                  : options === '2'
-                  ? 'Base'
-                  : 'Blast'
+              )} ] Transaction successful from Arbitrum Sepolia to ${
+                options === '1' ? 'Arbitrum' : options === '2' ? 'Base' : 'Blast'
               } Sepolia!`.green
             );
             console.log(
