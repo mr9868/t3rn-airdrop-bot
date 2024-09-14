@@ -36,8 +36,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
   );
    if (jumlah <= 0) {
       const awal = 10000000000000000;
-      const min = 1000;
-      const max = 1111;
+      const min = 1000; // 0.01 ETH
+      const max = 1222; // 0.01222 ETH
       const acak = Math.random() * (max - min) + min;
       const randomValue = acak.toFixed(0);
       const desimal = String(randomValue / 100000);
