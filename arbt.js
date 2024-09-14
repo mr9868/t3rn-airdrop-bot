@@ -38,7 +38,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
       // const min = 0; // 0.01 ETH
       // const max = 0; // 0.01222 ETH
       // const acak = 0;
-      // const randomValue = 0;
+      const randomValue = "";
       const desimal = "";
       // convert number to a string, then extract the first digit
       // const final = 0;
@@ -59,13 +59,13 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
    }
    else
    {
-       jumlahTx = jumlah * 100000;
-       jumlahValue = jumlahTx.toFixed(0);
-       desimal = String(jumlahValue / 100000);
-    // convert number to a string, then extract the first digit
-       final = Number(String(awal).replace("1000",jumlahValue));
-       saldo = final.toString(16);
-       saldoHex = String(saldo).padStart(16, '0'); 
+    //    jumlahTx = jumlah * 100000;
+    //    jumlahValue = jumlahTx.toFixed(0);
+    //    desimal = String(jumlahValue / 100000);
+    // // convert number to a string, then extract the first digit
+    //    final = Number(String(awal).replace("1000",jumlahValue));
+    //    saldo = final.toString(16);
+    //    saldoHex = String(saldo).padStart(16, '0'); 
 
    }
   const numTx = readlineSync.questionInt(
