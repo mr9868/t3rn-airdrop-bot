@@ -5,6 +5,7 @@ function displayHeader() {
   console.log('========================================'.cyan);
   console.log('=      🚀 T3rn Auto Bridge Bot 🚀      ='.cyan);
   console.log('=     Created by HappyCuanAirdrop      ='.cyan);
+  console.log('=           Modded by Mr9868            ='.cyan);
   console.log('=    https://t.me/HappyCuanAirdrop     ='.cyan);
   console.log('========================================'.cyan);
   console.log();
