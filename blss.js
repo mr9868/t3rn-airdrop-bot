@@ -209,7 +209,6 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_BLSS;
   }
 
   console.log('');
-  console.log('Mod by : Mr9868');
   console.log(
     `🎉 [ ${moment().format(
       'HH:mm:ss'
