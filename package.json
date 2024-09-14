@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "start.js",
+    "start": "node index.js",
     "arbt": "node arbt.js",
     "bssp": "node bssp.js",
     "blss": "node blss.js",
