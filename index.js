@@ -4,12 +4,16 @@ const { displayHeader } = require('./utils/display');
 
 const scriptCommands = {
   0: 'npm run arbt',
-  1: 'npm run opsp',
+  1: 'npm run bssp',
+  2: 'npm run blss',
+  3: 'npm run opsp',
 };
 
 const scriptNames = {
   0: 'Auto Bridge From Arbitrum Sepolia',
-  1: 'Auto Bridge From Optimism Sepolia',
+  1: 'Auto Bridge From Base Sepolia',
+  2: 'Auto Bridge From Blast Sepolia',
+  3: 'Auto Bridge From Optimism Sepolia',
 };
 
 displayHeader();
