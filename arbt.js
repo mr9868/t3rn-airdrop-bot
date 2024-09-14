@@ -48,8 +48,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
       const saldo = 0;
   
    if (jumlah <= 0) {
-       min = 1000; // 0.01 ETH
-       max = 1222; // 0.01222 ETH
+       min = 1000; 
+       max = 1222; 
        acak = Math.random() * (max - min) + min;
        randomValue = acak.toFixed(0);
        desimal = String(randomValue / 100000);
@@ -65,7 +65,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     // convert number to a string, then extract the first digit
        final = Number(String(awal).replace("1000",jumlahValue));
        saldo = final.toString(16);
-       saldoHex = String(saldo).padStart(16, '0'); // '00042'
+       saldoHex = String(saldo).padStart(16, '0'); 
 
    }
   const numTx = readlineSync.questionInt(
