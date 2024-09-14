@@ -1,6 +1,11 @@
 clear;
+echo -e    '========================================\n';
+  echo -e '=      🚀 T3rn Auto Bridge Bot 🚀      =\n';
+  echo -e '=     Created by HappyCuanAirdrop      =\n';
+  echo -e '=           Modded by Mr9868            =\n';
+  echo -e '=    https://t.me/HappyCuanAirdrop     =\n';
+  echo -e '========================================\n';
 echo -e "WELCOME TO T3RN AIRDROP BOT !\n
-         Mod By : Mr9868\n
          Choose the network : \n
          1. Arbitrum Sepolia\n
          2. Base Sepolia\n
