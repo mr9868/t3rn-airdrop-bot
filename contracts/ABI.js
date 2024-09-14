@@ -192,7 +192,7 @@ const T3RN_ABI = [
     CA_OPSP: '0xF221750e52aA080835d2957F2Eed0d5d7dDD8C38',
     RPC_ARBT: 'https://arbitrum-sepolia.infura.io/v3/cf29898319594df799ef861b6dab7198',
     RPC_BSSP: 'https://sepolia.base.org',
-    RPC_BLSS: 'https://blast-sepolia.drpc.org',
+    RPC_BLSS: 'https://sepolia.blast.io',
     RPC_OPSP: 'https://sepolia.optimism.io',
   },
 ];
