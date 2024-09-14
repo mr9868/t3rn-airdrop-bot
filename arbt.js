@@ -35,8 +35,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     "🔄 How much amount you want to bridge ? set 0 for random tx => "
   );
       const awal = 10000000000000000;
-      const min = 0; // 0.01 ETH
-      const max = 0; // 0.01222 ETH
+      const min = 1000; // 0.01 ETH
+      const max = 1222; // 0.01222 ETH
       const acak = "";
       const randomValue = "";
       const desimal = "";
@@ -47,9 +47,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
       const jumlahValue = "";
       const saldo = "";
   
-   if (jumlah <= 0) {
-        min = 1000; 
-        max = 1222; 
+   if (jumlah <= 0) { 
         acak = Math.random() * (max - min) + min;
         randomValue = acak.toFixed(0);
         desimal = String(randomValue / 100000);
