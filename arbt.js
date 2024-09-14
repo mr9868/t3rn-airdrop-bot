@@ -32,7 +32,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
     process.exit(0);
   }
  const jumlah = readlineSync.questionFloat(
-    "🔄 How much amount in ETH you want to bridge ? set 0 for random amount => ETH"
+    "🔄 How much amount in ETH you want to bridge ? set 0 for random amount => "
   );
       const awal = 10000000000000000;
       const min = 1000; // 0.01 ETH
@@ -80,7 +80,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
 }
 
   const tunda = readlineSync.questionInt(
-    "🔄 Set delay for every transaction ? Set 0 for random delay  => " + "Second"
+    "🔄 Set delay for every transaction ? Set 0 for random delay => "
   );
 
   if (numTx <= 0) {
