@@ -1,7 +1,7 @@
 # t3rn-airdrop-bot
-# Codded By : dante4rt
+### Codded By : dante4rt
 github : https://github.com/dante4rt
-# Modded By : Mr9868
+### Modded By : Mr9868
 https://github.com/mnur9868
 https://github.com/mr9868
 
