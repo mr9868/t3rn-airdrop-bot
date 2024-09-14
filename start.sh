@@ -1,5 +1,5 @@
 clear;
-echo "WELCOME TO T3RN AIRDROP BOT !\n
+echo -e "WELCOME TO T3RN AIRDROP BOT !\n
          Mod By : Mr9868\n
          Choose the network : \n
          1. Arbitrum Sepolia\n
@@ -18,5 +18,5 @@ elif [[ $answer == 3 ]] ; then
 elif [[ $answer == 4 ]] ; then
   node opsp.js
 else
-  echo "Nothing to do !\n"
+  echo -e "Nothing to do !\n"
 fi
