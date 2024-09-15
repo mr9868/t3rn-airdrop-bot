@@ -14,7 +14,7 @@ const TOKEN_FILE_PATH = path.join(__dirname, 'BLSS_TX_HASH.txt');
 
 const PRIVATE_KEYS = JSON.parse(fs.readFileSync('privateKeys.json', 'utf-8'));
 const RPC_URL = T3RN_ABI.at(-1).RPC_BLSS;
-
+const chain_id = T3RN_ABI.at(-1).ID_BLSS;
 const provider = new JsonRpcProvider(RPC_URL);
 const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_BLSS;
 (async () => {
@@ -142,6 +142,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_BLSS;
             });
             const nonce = await wallet.getNonce();
             const transaction = {
+              nonce,
+              chainId: chain_id,
               data: request,
               to: CONTRACT_ADDRESS,
               gasLimit,
