@@ -11,7 +11,7 @@ const { transactionData, delay } = require('./chains/opsp/helper');
 const { getAmount } = require('./chains/opsp/api');
 
 const TOKEN_FILE_PATH = path.join(__dirname, 'OPSP_TX_HASH.txt');
-
+const chain_id = T3RN_ABI.at(-1).ID_OPSP;
 const PRIVATE_KEYS = JSON.parse(fs.readFileSync('privateKeys.json', 'utf-8'));
 const RPC_URL = T3RN_ABI.at(-1).RPC_OPSP;
 
@@ -143,6 +143,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
             const nonce = await wallet.getNonce();
             const transaction = {
               nonce,
+              chainId: chain_id,
               data: request,
               to: CONTRACT_ADDRESS,
               gasLimit,
