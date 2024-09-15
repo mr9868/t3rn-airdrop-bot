@@ -22,7 +22,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
 (async () => {
   displayHeader();
   console.log('⏳ Please wait...'.yellow);
-  console.log(amount);
+  console.log('');
 
   const options = readlineSync.question(
     'Choose the network that you want to use 👇\n\n1. Optimism Sepolia to Arbitrum Sepolia\n2. Optimism Sepolia to Base Sepolia\n3. Optimism Sepolia to Blast Sepolia\n4. Exit\n\nEnter 1, 2, 3, or 4: '
