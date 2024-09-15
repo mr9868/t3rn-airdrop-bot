@@ -132,18 +132,15 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
               saldoHex
             );
 
-            const gasPrice = parseUnits('0.1', 'gwei');
+    const gasPrice = parseUnits('0.1', 'gwei');
 
-            const gasEstimate = await provider.estimateGas({
+            const gasLimit = await provider.estimateGas({
               to: CONTRACT_ADDRESS,
               from: wallet.address,
               data: request,
               value: parseUnits(desimal, 'ether'),
               gasPrice,
             });
-            const gasLimit = gasEstimate + 10000;
-            const priorityFee = parseUnits('5', 'gwei');
-            const maxFee = gasPrice + priorityFee;
             const nonce = await wallet.getNonce();
             const transaction = {
               nonce,
@@ -154,17 +151,6 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
               gasPrice,
               from: wallet.address,
               value: parseUnits(desimal, 'ether'), // adjustable
-              // nonce,
-              // chainId: chain_id,
-              // data: request,
-              // to: CONTRACT_ADDRESS,
-              // // gasLimit,
-              // // gasPrice,
-              // gas: gasLimit,
-              // maxFeePerGas: maxFee,
-              // maxPriorityFeePerGas: priorityFee,
-              // from: wallet.address,
-              // value: parseUnits(desimal, 'ether'), // adjustable
             };
 
             const result = await wallet.sendTransaction(transaction);
