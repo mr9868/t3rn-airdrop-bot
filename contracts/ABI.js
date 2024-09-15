@@ -194,6 +194,10 @@ const T3RN_ABI = [
     RPC_BSSP: 'https://sepolia.base.org',
     RPC_BLSS: 'https://blast-sepolia.drpc.org',
     RPC_OPSP: 'https://sepolia.optimism.io',
+    ID_ARBT : 421614,
+    ID_BSSP : 84532,
+    ID_BLSS : 168587773,
+    ID_OPSP : 11155420,
   },
 ];
 
