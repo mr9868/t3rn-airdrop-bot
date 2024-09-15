@@ -124,7 +124,8 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
               );
               continue;
             }
-
+            
+            const nonce = await wallet.getNonce();
             const request = transactionData(
               wallet.address,
               amount.hex,
