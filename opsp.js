@@ -14,13 +14,15 @@ const TOKEN_FILE_PATH = path.join(__dirname, 'OPSP_TX_HASH.txt');
 const chain_id = T3RN_ABI.at(-1).ID_OPSP;
 const PRIVATE_KEYS = JSON.parse(fs.readFileSync('privateKeys.json', 'utf-8'));
 const RPC_URL = T3RN_ABI.at(-1).RPC_OPSP;
+const amount = await getAmount(1);
+const aku = JSON.stringify(amount);
 
 const provider = new JsonRpcProvider(RPC_URL);
 const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
 (async () => {
   displayHeader();
   console.log('⏳ Please wait...'.yellow);
-  console.log('');
+  console.log(amount);
 
   const options = readlineSync.question(
     'Choose the network that you want to use 👇\n\n1. Optimism Sepolia to Arbitrum Sepolia\n2. Optimism Sepolia to Base Sepolia\n3. Optimism Sepolia to Blast Sepolia\n4. Exit\n\nEnter 1, 2, 3, or 4: '
