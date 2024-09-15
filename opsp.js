@@ -140,7 +140,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
               value: parseUnits(desimal, 'ether'),
               gasPrice,
             });
-
+            const nonce = await wallet.getNonce();
             const transaction = {
               data: request,
               to: CONTRACT_ADDRESS,
