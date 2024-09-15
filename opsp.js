@@ -14,8 +14,6 @@ const TOKEN_FILE_PATH = path.join(__dirname, 'OPSP_TX_HASH.txt');
 const chain_id = T3RN_ABI.at(-1).ID_OPSP;
 const PRIVATE_KEYS = JSON.parse(fs.readFileSync('privateKeys.json', 'utf-8'));
 const RPC_URL = T3RN_ABI.at(-1).RPC_OPSP;
-// const amount = await getAmount(1);
-// const aku = JSON.stringify(amount);
 
 const provider = new JsonRpcProvider(RPC_URL);
 const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
@@ -157,7 +155,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_OPSP;
             const result = await wallet.sendTransaction(transaction);
             const amount2 = amount.toString(16);
             const amount3 = amount2.slice(2);
-            console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Sending ${JSON.stringify(amount)} ETH`.yellow);
+            console.log(`⏳ [ ${moment().format('HH:mm:ss')} ] Sending ${desimal} ETH`.yellow);
             console.log(
               `✅ [ ${moment().format(
                 'HH:mm:ss'
