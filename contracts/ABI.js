@@ -193,7 +193,7 @@ const T3RN_ABI = [
     RPC_ARBT: 'https://arbitrum-sepolia.infura.io/v3/cf29898319594df799ef861b6dab7198',
     RPC_BSSP: 'https://sepolia.base.org',
     RPC_BLSS: 'https://blast-sepolia.drpc.org',
-    RPC_OPSP: 'https://base-sepolia-rpc.publicnode.com',
+    RPC_OPSP: 'https://blast-sepolia.blockpi.network/v1/rpc/public',
     ID_ARBT : 421614,
     ID_BSSP : 84532,
     ID_BLSS : 168587773,
