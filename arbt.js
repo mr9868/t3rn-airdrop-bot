@@ -14,13 +14,13 @@ const TOKEN_FILE_PATH = path.join(__dirname, 'ARBT_TX_HASH.txt');
 
 const PRIVATE_KEYS = JSON.parse(fs.readFileSync('privateKeys.json', 'utf-8'));
 const RPC_URL = T3RN_ABI.at(-1).RPC_ARBT;
-
+const network_id = T3RN_ABI.at(-1).ID_ARBT;
 const provider = new JsonRpcProvider(RPC_URL);
 const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
 (async () => {
   displayHeader();
   console.log('⏳ Please wait...'.yellow);
-  console.log('');
+  console.log(network_id);
 
   const options = readlineSync.question(
     'Choose the network that you want to use 👇\n\n1. Arbitrum Sepolia to Base Sepolia\n2. Arbitrum Sepolia to Blast Sepolia\n3. Arbitrum Sepolia to Optimism Sepolia\n4. Exit\n\nEnter 1, 2, 3, or 4: '
