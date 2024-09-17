@@ -20,7 +20,7 @@ const CONTRACT_ADDRESS = T3RN_ABI.at(-1).CA_ARBT;
 (async () => {
   displayHeader();
   console.log('⏳ Please wait...'.yellow);
-  console.log(network_id);
+  console.log('');
 
   const options = readlineSync.question(
     'Choose the network that you want to use 👇\n\n1. Arbitrum Sepolia to Base Sepolia\n2. Arbitrum Sepolia to Blast Sepolia\n3. Arbitrum Sepolia to Optimism Sepolia\n4. Exit\n\nEnter 1, 2, 3, or 4: '
